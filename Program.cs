@@ -1,5 +1,4 @@
-﻿
-Dictionary<int, int> descedants = new Dictionary<int, int>();
+﻿Dictionary<int, int> descedants = new Dictionary<int, int>();
 
 descedants.Add(1, 0);
 descedants.Add(2, 0);
@@ -14,7 +13,7 @@ descedants.Add(10, 3);
 descedants.Add(11, 11);
 
 
-bool result = isChildOf(11, 11);
+bool result = isChildOf(9, 0);
 
 Console.WriteLine(result);
 
@@ -24,6 +23,11 @@ Console.WriteLine(result);
 /// </summary>
 bool isChildOf(int node1, int node2)
 {
+    if(node2 == 0)
+    {
+        return false;
+    }
+
     foreach (KeyValuePair<int, int> descedant in descedants)
     {
         if (descedant.Key == node1 && descedant.Value == node2)
@@ -39,5 +43,5 @@ bool isChildOf(int node1, int node2)
         return false;
     }
 
-    return isChildOf(key, node2); ;
+    return isChildOf(key, node2);
 }
